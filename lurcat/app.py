@@ -5,7 +5,7 @@ import os
 from flask import Flask, request, render_template
 from flask.ext.babel import Babel
 
-from addons.config import DefaultConfig
+from lurcat.addons.config import DefaultConfig
 from lurcat.modules.user import User, user
 from lurcat.modules.settings import settings
 from lurcat.modules.message import message
