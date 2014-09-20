@@ -6,7 +6,7 @@ function hide_flask_message_container() {
 
 $(document).ready(function() {
     /* Show and hide flash message. */
-    //$('#flash_message_container').slideDown(function() {
-        //setTimeout(hide_flask_message_container, 3000);
-    //});
+    $('#flash_message_container').slideDown(function() {
+        setTimeout(hide_flask_message_container, 3000);
+    });
 })
