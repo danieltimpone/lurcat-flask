@@ -1,0 +1,11 @@
+{% from "macros/_form.html" import render_form %}
+
+{% extends "admin/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h2>General Settings Page</h2>
+    <h5> Upload New Logo </h5>
+    {{ render_form(url_for('admin.upload_logo'), logo_form) }}    
+</div>
+{% endblock %}

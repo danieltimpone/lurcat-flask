@@ -1,0 +1,27 @@
+{% set page_title = user.name %}
+
+{% extends "layouts/base.html" %}
+
+{% block body %}
+<h2>Profile<small> / {{ user.name }}</small></h2>
+{% if current_user.id == user.id %}
+{{_('This is you!')}}
+{% elif followed %}
+        You are currently following this user.
+           <a class=unfollow href="{{ url_for('user.unfollow_user', user_id=user.id )
+          }}">{{_('Unfollow user')}}</a>.
+       
+{% else %}
+        {{_('You are not yet following this user.')}}
+         <a class=follow href="{{ url_for('user.follow_user', user_id=user.id )
+          }}">{{_('Follow user')}}</a>.
+{% endif %}
+  <ul class=messages>
+  {% for message in messages %}
+    <li>{{ message.text }}
+      <small>&mdash; {{ message.pub_date|datetimeformat }}</small>
+  {% else %}
+    <li><em>{{_('There\'s no message so far.')}}</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

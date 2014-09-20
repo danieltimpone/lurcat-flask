@@ -1,0 +1,24 @@
+{% extends "admin/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h2>Exiting Languages</h2>
+    <table class='table table-bordered table-hover'>
+        <thead>
+            <tr>
+                <th>Language</th>
+                <th>Translation File</th>
+            </tr>
+        </thead>
+        {% for language in languages %}
+        <tr>
+            <td>{{ language.display_name }}</td>
+            <td><a href="{{ url_for('admin.existing_translation', language=language.__str__()) }}">Download File</a></td>
+            <td><a href="{{ url_for('admin.edit_translation', language=language.__str__()) }}">Edit</a></td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

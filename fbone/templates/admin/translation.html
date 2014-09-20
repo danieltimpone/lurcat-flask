@@ -1,0 +1,10 @@
+{% from "macros/_form.html" import render_form %}
+
+{% extends "admin/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h2>Edit Translation</h2>
+    {{ render_form(url_for('admin.edit_translation', language=form.language.data), form) }}
+</div>
+{% endblock %}

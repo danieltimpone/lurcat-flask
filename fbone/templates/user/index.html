@@ -1,0 +1,83 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = user.name %}
+
+{% extends "layouts/base.html" %}
+
+
+{% block body %}
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Message Responses</h3>
+  </div>
+  <div id='message-responses' class='container'>
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+
+<h2> {{_('Hello')}}, {{ user.name }}!</h2>
+{{ render_form(url_for('message.add_message'), form) }}
+<strong><p class="text-info"> {{_('Accepted')}} </p></strong>
+  <ul class=messages>
+  {% for message in messages.replied_messages %}
+    <li>
+      <img src ="{{url_for('static', filename='uploads/')}}user_{{message.user_id}}/{{message.publish_user.avatar }}">
+      <strong><a href="/user/{{ message.user_id }}/profile">{{ message.publish_user.name }}</a></strong>
+      <a onClick='showResponses({{ message.message_id }})'>{{ message.text }}</a>
+      <small>&mdash; {{ message.pub_date|datetimeformat }}</small>
+      {%if message.message_id in star_messages %}
+      <a href="{{ url_for('message.remove_star_message',message_id = message.message_id,offset = offset) }}">✭</a>
+        {% else %}
+        <a href="{{ url_for('message.add_star_message',message_id = message.message_id,offset = offset) }}">☆</a>
+      {% endif %}
+      {{ render_form(url_for('message.add_message_response',parent_id=message.message_id), response_form) }}
+ {% endfor %}
+  </ul>
+
+<hr>
+<strong><p class="text-info"> {{_('Starred')}} </p></strong>
+  <ul class=messages>
+  {% for message in messages.stared_messages %}
+    <li>
+      <img src ="{{url_for('static', filename='uploads/')}}user_{{message.user_id}}/{{message.publish_user.avatar }}">
+      <strong><a href="/user/{{ message.user_id }}/profile">{{ message.publish_user.name }}</a></strong>
+      <a onClick='showResponses({{ message.message_id }})'>{{ message.text }}</a>
+      <small>&mdash; {{ message.pub_date|datetimeformat }}</small>
+      {%if message.message_id in star_messages %}
+      <a href="{{ url_for('message.remove_star_message',message_id = message.message_id,offset = offset) }}">✭</a>
+        {% else %}
+        <a href="{{ url_for('message.add_star_message',message_id = message.message_id,offset = offset) }}">☆</a>
+      {% endif %}
+      {{ render_form(url_for('message.add_message_response',parent_id=message.message_id), response_form) }}
+ {% endfor %}
+  </ul>
+<hr>
+<strong><p class="text-info">{{_('New')}} </p></strong>
+  <ul class=messages>
+  {% for message in messages.new_messages %}
+    <li>
+      <img src ="{{url_for('static', filename='uploads/')}}user_{{message.user_id}}/{{message.publish_user.avatar }}">
+      <strong><a href="/user/{{ message.user_id }}/profile">{{ message.publish_user.name }}</a></strong>
+      <a onClick='showResponses({{ message.message_id }})'>{{ message.text }}</a>
+      <small>&mdash; {{ message.pub_date|datetimeformat }}</small>
+      {%if message.message_id in star_messages %}
+      <a href="{{ url_for('message.remove_star_message',message_id = message.message_id,offset = offset) }}">✭</a>
+        {% else %}
+        <a href="{{ url_for('message.add_star_message',message_id = message.message_id,offset = offset) }}">☆</a>
+      {% endif %}
+      {{ render_form(url_for('message.add_message_response',parent_id=message.message_id), response_form) }}
+ {% endfor %}
+  </ul>
+
+{% endblock %}
+
+{% block extra_js %}
+  <script  src="{{ url_for('static', filename='js/message_responses.js') }}"></script>
+{% endblock %}

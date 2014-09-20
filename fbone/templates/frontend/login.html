@@ -1,0 +1,10 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = "Sign in" %}
+
+{% extends "layouts/base.html" %}
+
+{% block body %}
+<h2>{{_('Sign in')}} <small>{{_('Or with')}} <a href="{{ url_for('frontend.login_openid') }}">{{_('OpenID')}}</a>. {{_('Don\'t have an account?')}} <a href="{{ url_for('frontend.signup') }}">{{_('Sign up')}}</a>, {{_('please')}}</small></h2>
+{{ render_form(url_for('frontend.login'), form)}}
+{% endblock %}

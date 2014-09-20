@@ -1,0 +1,20 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = user.name %}
+
+{% extends "layouts/base.html" %}
+
+{% block body %}
+  <ul class=messages>
+    {% if message == None %}
+       {{_('There are no messages left')}}
+    {% else %}
+    <li>
+      <img src ="{{url_for('static', filename='uploads/')}}user_{{message.user_id}}/{{message.publish_user.avatar }}">
+      <strong><a href="/user/{{ message.user_id }}/profile">{{ message.publish_user.name }}</a></strong>
+      {{ message.text }}
+      <small>&mdash; {{ message.pub_date|datetimeformat }}</small>
+      {{ render_form(url_for('message.add_message_response'), response_form) }}
+    {% endif %}
+  </ul>
+{% endblock %}
