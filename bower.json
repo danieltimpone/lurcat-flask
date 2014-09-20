@@ -1,0 +1,18 @@
+{
+  "name": "lurcat-flask",
+  "version": "0.0.0",
+  "homepage": "https://github.com/cuttlesoft/lurcat-flask",
+  "authors": [
+    "Frank Valcarcel <fvalcarcel@me.com>"
+  ],
+  "description": "flask boilerplate for the lurcat framework system",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
