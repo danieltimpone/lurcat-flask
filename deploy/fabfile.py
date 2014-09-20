@@ -62,7 +62,7 @@ def babel():
     """
     Babel compile.
     """
-    local("pybabel extract -F babel.cfg -k lazy_gettext -o messages.pot lurcat")
+    local("pybabel extract -F ../lurcat/config -k lazy_gettext -o messages.pot lurcat")
     local("pybabel init -i messages.pot -d lurcat/translations -l es")
     local("pybabel init -i messages.pot -d lurcat/translations -l en")
     local("pybabel compile -f -d lurcat/translations")
