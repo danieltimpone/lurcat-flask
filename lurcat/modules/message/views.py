@@ -1,16 +1,14 @@
-
 # -*- coding: utf-8 -*-
 
-import os
+import json
 
-from flask import Blueprint, render_template, send_from_directory, abort, redirect, url_for, request, flash
-from flask import current_app as app
+from flask import Blueprint, render_template, redirect, url_for, flash
 from flask.ext.babel import gettext as _
-
 from flask.ext.login import login_required, current_user
+
 from .forms import CreateMessageForm, ResponseMessageForm
 from .models import Message, StaredMessages, TimeLine
-import json
+
 
 message = Blueprint('message', __name__, url_prefix='/message')
 

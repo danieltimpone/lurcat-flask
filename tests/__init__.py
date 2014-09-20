@@ -9,11 +9,11 @@
 
 from flask.ext.testing import TestCase as Base, Twill
 
-from fbone import create_app
-from fbone.user import User, UserDetail, ADMIN, USER, ACTIVE
-from fbone.config import TestConfig
-from fbone.extensions import db
-from fbone.utils import MALE
+from lurcat import create_app
+from lurcat.modules.user import User, UserDetail, ADMIN, USER, ACTIVE
+from lurcat.addons.config import TestConfig
+from lurcat.addons.extensions import db
+from lurcat.addons.utils import MALE
 
 
 class TestCase(Base):

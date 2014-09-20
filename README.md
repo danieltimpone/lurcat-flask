@@ -1,13 +1,13 @@
 # INTRODUCTION
 
-Fbone (Flask bone) is a [Flask](http://flask.pocoo.org) (Python microframework) template/bootstrap/boilerplate application, with best practices.
+lurcat (Flask bone) is a [Flask](http://flask.pocoo.org) (Python microframework) template/bootstrap/boilerplate application, with best practices.
 
 You can use it for
 
 - learning Flask.
 - kicking off your new project faster.
 
-![Flask bone homepage screenshot](http://github.com/imwilsonxu/fbone/raw/master/screenshots/flask-bone-homepage-screenshot.png)
+![Flask bone homepage screenshot](http://github.com/imwilsonxu/lurcat/raw/master/screenshots/flask-bone-homepage-screenshot.png)
 
 ## FEATURES
 
@@ -48,7 +48,7 @@ Pre-required:
 
 Clone.
 
-    git clone https://github.com/imwilsonxu/fbone.git fbone
+    git clone https://github.com/imwilsonxu/lurcat.git lurcat
 
 virtualenv.
 
@@ -65,17 +65,17 @@ Open `http://127.0.0.1:5000`, done!
 Clone.
 
     cd /var/www
-    git clone https://github.com/imwilsonxu/fbone.git fbone
-    sudo chown `whoami` -R fbone
+    git clone https://github.com/imwilsonxu/lurcat.git lurcat
+    sudo chown `whoami` -R lurcat
 
 vhost.
 
-    WSGIDaemonProcess fbone user=wilson group=wilson threads=5
-    WSGIScriptAlias /fbone /var/www/fbone/app.wsgi
+    WSGIDaemonProcess lurcat user=wilson group=wilson threads=5
+    WSGIScriptAlias /lurcat /var/www/lurcat/app.wsgi
 
-    <Directory /var/www/fbone/>
+    <Directory /var/www/lurcat/>
         WSGIScriptReloading On
-        WSGIProcessGroup fbone
+        WSGIProcessGroup lurcat
         WSGIApplicationGroup %{GLOBAL}
         Order deny,allow
         Allow from all
@@ -87,7 +87,7 @@ virtualenv.
 
 **IMPORTANT**:
 
-- Change `INSTANCE_FOLDER_PATH` in `fbone/utils.py` to suit yourself.
+- Change `INSTANCE_FOLDER_PATH` in `lurcat/utils.py` to suit yourself.
 - Put `production.cfg` under `INSTANCE_FOLDER_PATH`.
 
 ## STRUCTURE
@@ -95,7 +95,7 @@ virtualenv.
     ├── app.wsgi                (mod_wsgi wsgi config)
     ├── CHANGES
     ├── fabfile.py              (fabric file)
-    ├── fbone                   (main app)
+    ├── lurcat                   (main app)
     │   ├── api                 (api module)
     │   ├── app.py              (create flask app)
     │   ├── config.py           (config module)

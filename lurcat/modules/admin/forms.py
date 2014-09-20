@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from flask.ext.wtf import Form
-from flask.ext.wtf.html5 import URLField, EmailField, TelField
-from wtforms import (ValidationError, TextField, HiddenField, PasswordField,
-    SubmitField, TextAreaField, IntegerField, RadioField,FileField,
-    DecimalField, SelectField, DateField, Field, widgets)
-from wtforms.validators import (Required, Length, EqualTo, Email, NumberRange, AnyOf, Optional, URL)
-from ..extensions import db
+from wtforms import (HiddenField, SubmitField, RadioField, FileField, DateField)
+from wtforms.validators import AnyOf
 
-from ..user import USER_ROLE, USER_STATUS
+from lurcat.addons.extensions import db
+from lurcat.modules.user import USER_ROLE, USER_STATUS
 
 
 class UserForm(Form):

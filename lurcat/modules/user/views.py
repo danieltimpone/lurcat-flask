@@ -2,18 +2,17 @@
 
 import os
 
-from flask import Blueprint, render_template, send_from_directory, abort, redirect, url_for, request, flash
+from flask import Blueprint, render_template, send_from_directory, abort, flash
 from flask import current_app as APP
 from flask.ext.babel import gettext as _
 from flask.ext.login import login_required, current_user
-from fbone.message.forms import CreateMessageForm, ResponseMessageForm
-from fbone.message.models import Message
+
+from lurcat.modules.message.forms import CreateMessageForm, ResponseMessageForm
+from lurcat.modules.message.models import Message
 from .models import User
 
 
 user = Blueprint('user', __name__, url_prefix='/user')
-
-
 
 @user.route('/')
 @user.route('/<int:offset>')

@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta
 
-from fbone.utils import pretty_date
+from lurcat.addons.utils import pretty_date
 
 from tests import TestCase
 

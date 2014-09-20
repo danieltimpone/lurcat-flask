@@ -1,20 +1,16 @@
 # -*- coding: utf-8 -*-
 
-from uuid import uuid4
-
-from flask import (Blueprint, render_template, current_app, request,
-                   flash, url_for, redirect, session, abort)
+from flask import (Blueprint, render_template, current_app, request, flash, url_for, redirect, session, abort)
 from flask.ext.mail import Message
 from flask.ext.babel import gettext as _
-from flask.ext.login import login_required, login_user, current_user, logout_user, confirm_login, login_fresh
+from flask.ext.login import (login_required, login_user, current_user, logout_user, confirm_login, login_fresh)
 
-from ..user import User, UserDetail
-from ..extensions import  mail, login_manager, oid
+from lurcat.addons.extensions import  mail, login_manager, oid
+from lurcat.modules.user import User
 from .forms import SignupForm, LoginForm, RecoverPasswordForm, ReauthForm, ChangePasswordForm, OpenIDForm, CreateProfileForm
 
 
 frontend = Blueprint('frontend', __name__)
-
 
 @frontend.route('/login/openid', methods=['GET', 'POST'])
 @oid.loginhandler

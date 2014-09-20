@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 
+from werkzeug import secure_filename
+import os
+
 from flask import Blueprint, render_template, request, flash, current_app, send_from_directory, redirect, url_for
 from flask.ext.login import login_required
 from flask.ext.babel import Babel
-from ..decorators import admin_required
 
-from ..user import User
+from lurcat.addons.decorators import admin_required
+from lurcat.modules.user import User
 from .forms import UserForm, EditTranslationForm, UploadLogoForm
 
-from werkzeug import secure_filename
-
 admin = Blueprint('admin', __name__, url_prefix='/admin')
-import os
+
 
 @admin.route('/')
 @login_required
@@ -55,7 +56,7 @@ def edit_translation(language):
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(current_app.config['TRANSLATIONS_FOLDER'], language,current_app.config['TRANSLATIONS_PATH'],current_app.config['TRANSALTIONS_FILE']))
-            os.system("pybabel compile -f -d fbone/translations")
+            os.system("pybabel compile -f -d lurcat/translations")
             flash("Translation File has been uploaded")
             return redirect(url_for('admin.edit_translation',language=language))
     return render_template('admin/translation.html',form=form)

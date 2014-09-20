@@ -1,22 +1,17 @@
 # -*- coding: utf-8 -*-
 
 from flask import Markup, current_app
-
 from flask.ext.wtf import Form
-from flask.ext.wtf.html5 import URLField, EmailField, TelField
-from wtforms import (ValidationError, BooleanField, TextField, HiddenField, PasswordField,
-    SubmitField, TextAreaField, IntegerField, RadioField,FileField,
-    DecimalField, SelectField, DateField, Field, widgets)
-from wtforms.validators import (Required, Length, EqualTo, Email, NumberRange, AnyOf, Optional, URL)
-from flask import current_app
+from flask.ext.wtf.html5 import  EmailField
+from wtforms import (ValidationError, BooleanField, TextField, HiddenField, PasswordField, SubmitField)
+from wtforms.validators import (Required, Length, EqualTo, Email)
 from flask.ext.babel import lazy_gettext as _
 
-from ..user import User, UserDetail
-
-from ..user import User
-from ..utils import (PASSWORD_LEN_MIN, PASSWORD_LEN_MAX,
+from lurcat.addons.utils import (PASSWORD_LEN_MIN, PASSWORD_LEN_MAX,
         USERNAME_LEN_MIN, USERNAME_LEN_MAX)
-from ..extensions import db
+from lurcat.addons.extensions import db
+from lurcat.modules.user import User, UserDetail
+
 
 class LoginForm(Form):
     next = HiddenField()
