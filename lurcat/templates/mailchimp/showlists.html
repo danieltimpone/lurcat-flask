@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+{% set page_title = 'Mailchimp lists' %}
+
+{% block container %}
+<h2>Your MailChimp Lists</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>List Rating</th>
+    </tr>
+    {% for data in lists['data'] %}
+    <tr>
+        <td><a href="/lists/{{data['id']}}">{{data['id']}}</a></td>
+        <td>{{data['date_created']}}</td>
+        <td>{{data['list_rating']}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

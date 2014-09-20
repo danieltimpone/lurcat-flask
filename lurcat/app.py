@@ -177,9 +177,6 @@ def configure_hook(app):
         return dict(star_messages = star_messages )
 
 
-
-
-
 def configure_error_handlers(app):
 
     @app.errorhandler(403)
