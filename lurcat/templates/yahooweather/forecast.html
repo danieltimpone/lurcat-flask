@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+{% set page_title = 'Yahoo forecast for %s, %s' % (city, state) %}
+
+{% block container %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ wxDict['title'] }}</h3>
+  </div>
+  <table class="table table-striped" data-type="Weather" data-url="{{ url_for('yahooweatherbp.forecast') }}">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Weather</th>
+        <th>Low</th>
+        <th>High</th>
+      </tr>
+    </thead>
+    {% for day in wxDict['forecast'] %}
+    <tr>
+        <td>{{day['day']}}</td>
+        <td>{{day['text']}}</td>
+        <td>{{day['low']}}</td>
+        <td>{{day['high']}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}
