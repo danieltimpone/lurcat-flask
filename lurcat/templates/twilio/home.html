@@ -13,14 +13,14 @@
 				<label for="recipient">
 					Recipient Number: 
 				</label>
-				<input type="text" name="recipient" id="recipient" class="form-control" />
+				<input type="text" name="recipient" id="recipient" class="form-control" value="+17274090736" />
 				<label for="recipient">
 					Message 
 				</label>
-				<input type="text" name="text-message" id="text-message" class="form-control" />
+				<input type="text" name="text-message" id="text-message" class="form-control" value="this is text message" />
 				<button class="btn btn-default" id="submit-message" >Send Message</button>
 			</div>
-			<textarea id="return-value" disabled></textarea>
+			<div id="return-value" class="panel panel-body"></div>
 		</div>
 	</div>
 </div>
@@ -34,7 +34,6 @@
 				'recipient' : $("input[name='recipient']").val(),
 				'text-message' : $("input[name='text-message").val()
 			}
-			console.log(data)
 			$.ajax({
 		        type: "POST",
 		        contentType: "application/json",
@@ -42,7 +41,8 @@
 		        data:  JSON.stringify(data),
 		        dataType: "json",
 		        success: function (data) {
-		          $('#return-value').val('your text message was sent');
+		        	$('#text-message-form').hide();
+		          	$('#return-value').text('your text message was sent');
 		        },
 		        
 	      	});
