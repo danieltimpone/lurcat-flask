@@ -14,13 +14,5 @@
 
 .DS_Store
 
-dist
-build
-
 instance
-production.py
-logs
 uploads
-openid
-env
-logo.png
