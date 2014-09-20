@@ -1,8 +1,54 @@
-{% extends "_base.html" %}
+{% extends "layouts/base.html" %}
 
 {% block title %}Home{% endblock %}
 
-{% block content %}
-<h2>Twilio</h2>
-<p>This is a simple example of the Twilio API Python wrapper</p>
+{% block container %}
+<div class="col-xs-12">
+	<h2>Twilio</h2>
+	<p>This is a simple example of the Twilio API Python wrapper</p>
+	<div class="col-xs-6">
+		<h3>Text Somebody You Love Today!!!</h3>
+		<div class="form-group">
+			<div id="text-message-form">
+				<label for="recipient">
+					Recipient Number: 
+				</label>
+				<input type="text" name="recipient" id="recipient" class="form-control" />
+				<label for="recipient">
+					Message 
+				</label>
+				<input type="text" name="text-message" id="text-message" class="form-control" />
+				<button class="btn btn-default" id="submit-message" >Send Message</button>
+			</div>
+			<textarea id="return-value" disabled></textarea>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function(){
+		$('#submit-message').click(function(event){
+			event.preventDefault();
+
+			var data = {
+				'recipient' : $("input[name='recipient']").val(),
+				'text-message' : $("input[name='text-message").val()
+			}
+			console.log(data)
+			$.ajax({
+		        type: "POST",
+		        contentType: "application/json",
+		        url: "{{ url_for('twilio.send_message') }}",
+		        data:  JSON.stringify(data),
+		        dataType: "json",
+		        success: function (data) {
+		          $('#return-value').val('your text message was sent');
+		        },
+		        
+	      	});
+			
+		});
+	});
+	
+</script>
 {% endblock %}

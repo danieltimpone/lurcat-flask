@@ -42,7 +42,7 @@ class DefaultConfig(BaseConfig):
     TESTING = True
 
     # Flask-Sqlalchemy: http://packages.python.org/Flask-SQLAlchemy/config.html
-    SQLALCHEMY_ECHO = True
+    SQLALCHEMY_ECHO = False
     # SQLITE for prototyping.
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + INSTANCE_FOLDER_PATH + '/db.sqlite'
     # SQLALCHEMY_DATABASE_URI = 'postgres://ss:ss@localhost/manekineko'
