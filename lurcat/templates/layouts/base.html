@@ -34,37 +34,37 @@
 
     <div id='wrap'>
         {% block topbar %}
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class='brand' href='{{ url_for('frontend.index') }}'><img class='logo' src="{{ url_for('static', filename='img/logo.png') }}" /></a>
-
-                    {% if current_user.is_authenticated() %}
-                    <form class="navbar-search pull-left" action="{{ url_for('frontend.search') }}">
-                        <input type='text' class="search-query" name='keywords' value='{{ keywords|default('') }}' placeholder='Search' />
-                    </form>
-                    <div class="nav-collapse collapse pull-right">
-                        <ul class="nav">
-                            {% if current_user.is_admin() %}
-                            <li><a href="{{ url_for('admin.index') }}">{{ current_user.name }}</a></li>
-                            {% else %}
-                            <li><a href="{{ url_for('user.index') }}">{{ current_user.name }}</a></li>
-                            {% endif %}
-                            <li><a href="{{ url_for('settings.profile') }}">{{_('Settings')}}</a></li>
-                            <li><a href="{{ url_for('frontend.logout') }}">{{_('Log out')}}</a></li>
-                        </ul>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <a class='navbar-brand' href='{{ url_for('frontend.index') }}'><img class='logo' src="{{ url_for('static', filename='img/logo.png') }}" /></a>
+                {% if current_user.is_authenticated() %}
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type='text' class="form-control" name='keywords' value='{{ keywords|default('') }}' placeholder='Search' />
                     </div>
-                    {% else %}
-                    <div class="nav-collapse collapse pull-right">
-                        <ul class="nav">
-                            <li><span><a class="btn btn-success" href="{{ url_for('frontend.signup') }}"><strong>{{_('Sign up')}}</strong></a></span></li>
-                            <li><a href="{{ url_for('frontend.login') }}">{{_('Sign in')}}</a></li>
-                        </ul>
-                    </div>
-                    {% endif %}
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        {% if current_user.is_admin() %}
+                        <li><a href="{{ url_for('admin.index') }}">{{ current_user.name }}</a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('user.index') }}">{{ current_user.name }}</a></li>
+                        {% endif %}
+                        <li><a href="{{ url_for('settings.profile') }}">{{_('Settings')}}</a></li>
+                        <li><a href="{{ url_for('frontend.logout') }}">{{_('Log out')}}</a></li>
+                    </ul>
                 </div>
+                {% else %}
+                <div class="navbar-collapse collapse navbar-right">
+                    <ul class="navbar-nav">
+                        <li><span><a class="btn btn-success" href="{{ url_for('frontend.signup') }}"><strong>{{_('Sign up')}}</strong></a></span></li>
+                        <li><a href="{{ url_for('frontend.login') }}">{{_('Sign in')}}</a></li>
+                    </ul>
+                </div>
+                {% endif %}
             </div>
-        </div>
+        </nav>
         {% endblock %}
 
         {% block flash_message %}
@@ -90,7 +90,7 @@
             {% block top %}
                 {% if tabs %}
                 <div>
-                    <ul class="nav nav-tabs">
+                    <ul class="nav navbar-nav nav-tabs">
                         {% for tab, link in tabs %}
                         <li class="{% if active == tab %}active{% endif %}">
                             <a href="{{ link }}">{{ tab|capitalize }}</a>
@@ -100,9 +100,10 @@
                 </div>
                 {% endif %}
             {% endblock %}
-
+            
             {% block body %}
             {% endblock %}
+            
 
         </div>
         {% endblock %}
@@ -112,31 +113,35 @@
     <footer id="footer">
         <ul class="footer-links">
             <li>{{_('© 2013')}}</li>
-            <li><a href='#'>{{_('About')}}</a></li>
+            <li><a href='https://github.com/imwilsonxu/fbone'>{{_('About')}}</a></li>
             <li class="muted">&middot;</li>
             <li><a href='{{ url_for('frontend.help') }}'>{{_('Help')}}</a></li>
             <li class="muted">&middot;</li>
-            <li><a href='#'>{{_('Terms')}}</a></li>
+            <li><a href='https://github.com/imwilsonxu/fbone/blob/master/LICENSE'>{{_('Terms')}}</a></li>
             <li class="muted">&middot;</li>
-            <li><a href='#'>{{_('Blog')}}</a></li>
+            <li><a href='http://imwilsonxu.net'>{{_('Blog')}}</a></li>
         </ul>
     </footer>
 
 
     {% block js_btm %}
-    <script src="{{ url_for('static', filename='vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="//upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.0.min.js"></script>
+    <!--
+    {% set jquery_path = url_for('static', filename='js/vendor/jquery-1.8.3.min.js') %}
+    <script>window.jQuery || document.write('<script src="{{ jquery_path }}"><\/script>')</script>
+    -->
     <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/bootstrap.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     {% endblock %}
 
-    {% block extra_js %}
+{% block extra_js %}
     {% endblock %}
 
 
     {% block ga %}
     {% include "macros/_google_analytics.html" %}
     {% endblock %}
-
 </body>
 </html>
+
