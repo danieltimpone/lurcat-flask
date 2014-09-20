@@ -1,7 +1,7 @@
 {% macro render_checkbox(field) %}
 <div class="control-group{% if field.errors %} error{% endif %}">
     <div class="controls">
-        <label for="{{ field.id }}" class="checkbox inline">
+        <label for="{{ field.id }}" class="checkbox list-inline">
             {{ field }}{{ field.label.text }}
         </label>
         <span class="help-inline">{{ field.description }}</span>
@@ -19,7 +19,7 @@
     {{ field.label(class_="control-label") }}
     <div class="controls">
         {% for subfield in field -%}
-        <label for="{{ subfield.id }}" class="radio inline">
+        <label for="{{ subfield.id }}" class="radio list-inline">
             {{ subfield }} {{ subfield.label.text }}
         </label>
         {%- endfor %}
@@ -58,7 +58,7 @@
         {{ field.label }}
     </label>
     <div class="controls">
-        {{ field(class="span6", rows="5") }}
+        {{ field(class="col-xs-6 form-control", rows="5") }}
         <span class="help-inline">{{ field.description }}</span>
         {% if field.errors -%}
             {% for error in field.errors -%}
@@ -76,7 +76,7 @@
         {{ field.label }}
     </label>
     <div class="controls">
-        {{ field }}
+        {{ field(class="form-control") }}
         <span class="help-inline">{{ field.description }}</span>
         {% if field.errors -%}
             {% for error in field.errors -%}
