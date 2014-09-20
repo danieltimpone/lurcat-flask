@@ -12,6 +12,7 @@ from lurcat.modules.message import message
 from lurcat.modules.frontend import frontend
 from lurcat.modules.api import api
 from lurcat.modules.admin import admin
+from lurcat.modules.mailchimp import mailchimpbp
 from lurcat.addons.extensions import db, mail, cache, login_manager, oid
 from lurcat.addons.utils import INSTANCE_FOLDER_PATH
 from flask.ext.login import login_required, current_user
@@ -27,6 +28,7 @@ DEFAULT_BLUEPRINTS = (
     api,
     message,
     admin,
+    mailchimpbp,
 )
 
 
