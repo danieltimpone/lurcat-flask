@@ -1,15 +1,13 @@
-
+# -*- coding: utf-8 -*-
 
 from flask.ext.wtf import Form
-from flask.ext.wtf.html5 import URLField, EmailField, TelField
-from wtforms import (ValidationError, TextField, HiddenField, PasswordField,
-    SubmitField, TextAreaField, IntegerField, RadioField,FileField,
-    DecimalField, SelectField, DateField, Field, widgets)
-from wtforms.validators import (Required, Length, EqualTo, Email, NumberRange, AnyOf, Optional)
 from flask.ext.babel import lazy_gettext as _
-from .models import Message, StaredMessages, TimeLine
-from ..extensions import db
-from datetime import datetime
+from wtforms import (TextField, HiddenField, SubmitField)
+from wtforms.validators import Required
+
+from lurcat.addons.extensions import db
+from .models import Message, TimeLine
+
 
 class CreateMessageForm(Form):
     text = TextField(_('What\'s on your mind'), [Required()],

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from fbone.user import User, UserDetail
+from lurcat.modules.user import User, UserDetail
 
 from tests import TestCase
 

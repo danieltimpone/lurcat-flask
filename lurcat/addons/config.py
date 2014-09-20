@@ -7,7 +7,7 @@ from utils import make_dir, INSTANCE_FOLDER_PATH
 
 class BaseConfig(object):
 
-    PROJECT = "fbone"
+    PROJECT = "lurcat"
 
     # Get app root path, also can use flask.root_path.
     # ../../config.py
@@ -28,11 +28,11 @@ class BaseConfig(object):
     # Limited the maximum allowed payload to 16 megabytes.
     # http://flask.pocoo.org/docs/patterns/fileuploads/#improving-uploads
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024
-    UPLOAD_FOLDER = os.path.join(PROJECT_ROOT, 'fbone/static/uploads')
-    TRANSLATIONS_FOLDER = os.path.join(PROJECT_ROOT, 'fbone/translations')
+    UPLOAD_FOLDER = os.path.join(PROJECT_ROOT, 'static/uploads')
+    TRANSLATIONS_FOLDER = os.path.join(PROJECT_ROOT, 'translations')
     TRANSLATIONS_PATH = 'LC_MESSAGES/'
     TRANSALTIONS_FILE = 'messages.po'
-    LOGO_FILE = os.path.join(PROJECT_ROOT,'fbone/static/img/logo.png')
+    LOGO_FILE = os.path.join(PROJECT_ROOT,'static/img/logo.png')
     make_dir(UPLOAD_FOLDER)
 
 

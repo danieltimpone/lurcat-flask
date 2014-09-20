@@ -2,8 +2,8 @@
 
 from werkzeug.urls import url_quote
 
-from fbone.user import User
-from fbone.extensions import db, mail
+from lurcat.modules.user import User
+from lurcat.addons.extensions import db, mail
 
 from tests import TestCase
 

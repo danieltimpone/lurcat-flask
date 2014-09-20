@@ -3,11 +3,10 @@
 from flask import Blueprint, current_app, request, jsonify
 from flask.ext.login import login_user, current_user, logout_user
 
-from ..user import User
+from lurcat.modules.user import User
 
 
 api = Blueprint('api', __name__, url_prefix='/api')
-
 
 @api.route('/login', methods=['POST'])
 def login():

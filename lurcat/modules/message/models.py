@@ -2,9 +2,10 @@
 
 from sqlalchemy import Column, ForeignKey, not_
 from sqlalchemy.orm import relationship
-from ..extensions import db
-from ..utils import get_current_time, diff
-from fbone.user.models import User
+
+from lurcat.addons.extensions import db
+from lurcat.addons.utils import get_current_time, diff
+
 
 class Message(db.Model):
 

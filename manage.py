@@ -2,11 +2,10 @@
 
 from flask.ext.script import Manager
 
-from fbone import create_app
-from fbone.extensions import db
-from fbone.user import User, UserDetail, ADMIN, ACTIVE
-from fbone.message import Message, StaredMessages
-from fbone.utils import MALE
+from lurcat import create_app
+from lurcat.addons.extensions import db
+from lurcat.addons.utils import MALE
+from lurcat.modules.user import User, UserDetail, ADMIN, ACTIVE
 
 
 app = create_app()

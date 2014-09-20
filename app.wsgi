@@ -2,7 +2,7 @@
 
 import sys, os, pwd
 
-project = "fbone"
+project = "lurcat"
 
 # Use instance folder, instead of env variables.
 # specify dev/production config
@@ -19,5 +19,5 @@ if BASE_DIR not in sys.path:
     sys.path.append(BASE_DIR)
 
 # give wsgi the "application"
-from fbone import create_app
+from lurcat import create_app
 application = create_app()

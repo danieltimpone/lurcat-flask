@@ -4,7 +4,7 @@
 
 from fabric.api import *
 
-project = "fbone"
+project = "lurcat"
 
 # the user to use for the remote commands
 env.user = ''
@@ -62,7 +62,7 @@ def babel():
     """
     Babel compile.
     """
-    local("pybabel extract -F babel.cfg -k lazy_gettext -o messages.pot fbone")
-    local("pybabel init -i messages.pot -d fbone/translations -l es")
-    local("pybabel init -i messages.pot -d fbone/translations -l en")
-    local("pybabel compile -f -d fbone/translations")
+    local("pybabel extract -F babel.cfg -k lazy_gettext -o messages.pot lurcat")
+    local("pybabel init -i messages.pot -d lurcat/translations -l es")
+    local("pybabel init -i messages.pot -d lurcat/translations -l en")
+    local("pybabel compile -f -d lurcat/translations")

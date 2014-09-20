@@ -5,15 +5,15 @@ import os
 from flask import Flask, request, render_template
 from flask.ext.babel import Babel
 
-from .config import DefaultConfig
-from .user import User, user
-from .settings import settings
-from .message import message
-from .frontend import frontend
-from .api import api
-from .admin import admin
-from .extensions import db, mail, cache, login_manager, oid
-from .utils import INSTANCE_FOLDER_PATH
+from addons.config import DefaultConfig
+from lurcat.modules.user import User, user
+from lurcat.modules.settings import settings
+from lurcat.modules.message import message
+from lurcat.modules.frontend import frontend
+from lurcat.modules.api import api
+from lurcat.modules.admin import admin
+from lurcat.addons.extensions import db, mail, cache, login_manager, oid
+from lurcat.addons.utils import INSTANCE_FOLDER_PATH
 from flask.ext.login import login_required, current_user
 
 

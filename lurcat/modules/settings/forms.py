@@ -2,21 +2,22 @@
 import os
 import hashlib
 from datetime import datetime
+
 from flask import current_app
 from flask.ext.wtf import Form
 from flask.ext.wtf.html5 import URLField, EmailField, TelField
-from wtforms import (ValidationError, TextField, HiddenField, PasswordField,
-    SubmitField, TextAreaField, IntegerField, RadioField,FileField,
-    DecimalField, SelectField, DateField, Field, widgets)
-from wtforms.validators import (Required, Length, EqualTo, Email, NumberRange, AnyOf, Optional, URL)
 from flask.ext.babel import lazy_gettext as _
 from flask.ext.login import current_user
+from wtforms import (ValidationError, TextField, HiddenField, PasswordField, SubmitField, 
+    TextAreaField, IntegerField, RadioField,FileField, DecimalField)
+from wtforms.validators import (Required, Length, EqualTo, Email, NumberRange, AnyOf, Optional, URL)
 
-from ..user import User
-from ..utils import PASSWORD_LEN_MIN, PASSWORD_LEN_MAX, AGE_MIN, AGE_MAX, DEPOSIT_MIN, DEPOSIT_MAX
-from ..utils import allowed_file, ALLOWED_AVATAR_EXTENSIONS, make_dir
-from ..utils import SEX_TYPE
-from ..extensions import db
+
+from lurcat.addons.utils import PASSWORD_LEN_MIN, PASSWORD_LEN_MAX, AGE_MIN, AGE_MAX, DEPOSIT_MIN, DEPOSIT_MAX
+from lurcat.addons.utils import allowed_file, ALLOWED_AVATAR_EXTENSIONS, make_dir
+from lurcat.addons.utils import SEX_TYPE
+from lurcat.addons.extensions import db
+from lurcat.modules.user import User
 
 
 class ProfileForm(Form):
