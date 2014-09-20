@@ -4,12 +4,6 @@ import requests
 
 yahooweatherbp = Blueprint('yahooweatherbp', __name__, url_prefix='/yweather')
 
-class yWeatherObj():
-    forecast = None
-    title = None
-
-
-
 @yahooweatherbp.route('/forecast/')
 def forecast(city='Atlanta', state='ga'):
     params_dict = {}
