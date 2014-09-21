@@ -31,3 +31,26 @@ def forecast(city='Atlanta', state='ga'):
     wxDict = jdict['query']['results']['channel']['item']
 
     return render_template('yahooweather/forecast.html', city=city, state=state, wxDict=wxDict)
+
+
+@yahooweatherbp.route('/forecast/<city>/<state>')
+def forecastwithslashes(city, state):
+    params_dict = {}
+
+    params_dict['format'] = 'json'
+    # city, state
+
+    params_dict['q'] = ('select * from weather.forecast ' +
+                        'where woeid in (select woeid from geo.places(1) ' + 
+                        'where text="' + city + ', ' + state + '")')
+
+
+    params_dict['env'] = 'store://datatables.org/Falltableswithkeys'
+
+    r = requests.get("https://query.yahooapis.com/v1/public/yql", params=params_dict)
+    jdict = json.loads(r.text)
+
+
+    wxDict = jdict['query']['results']['channel']['item']
+
+    return render_template('yahooweather/forecast.html', city=city, state=state, wxDict=wxDict)
