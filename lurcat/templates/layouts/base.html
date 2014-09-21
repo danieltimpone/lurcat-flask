@@ -38,7 +38,7 @@
         {% block topbar %}
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
-                <a class='navbar-brand' href='{{ url_for('frontend.index') }}'><img class='logo' src="{{ url_for('static', filename='img/logo.png') }}" /></a>
+                <a class='navbar-brand' style="margin-left:-50px;" href='{{ url_for('frontend.index') }}'>Sample app</a>
                 {% if current_user.is_authenticated() %}
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
@@ -60,8 +60,8 @@
                 {% else %}
                 <div class="navbar-collapse collapse navbar-right">
                     <ul class="navbar-nav">
-                        <li><span><a class="btn btn-success" href="{{ url_for('frontend.signup') }}"><strong>{{_('Sign up')}}</strong></a></span></li>
-                        <li><a href="{{ url_for('frontend.login') }}">{{_('Sign in')}}</a></li>
+                        <li><span><a style="margin-top:8px;" class="btn btn-success" href="{{ url_for('frontend.signup') }}"><strong>{{_('Sign up')}}</strong></a></span></li>
+                        <li style="padding-top:15px;padding-left:10px;"><a style="margin-top:8px" href="{{ url_for('frontend.login') }}">{{_('Sign in')}}</a></li>
                     </ul>
                 </div>
                 {% endif %}
