@@ -1,0 +1,56 @@
+{% extends 'layouts/base.html' %}
+{% set page_title = 'Bitpay test' %}
+{% block container %}
+<div class="col-xs-12">
+	<h2>Bitpay API example</h2>
+	<p>This is a simple example of the Bitpay API Python wrapper, using Flask.</p>
+	<div class="col-xs-6">
+		<h3>Buy the hampster of your dreams!!!!</h3>
+		<div class="form-group">
+			<div id="purchase-form">
+				<label for="name">
+					Name: 
+				</label>
+				<input type="text" name="name" id="name" class="form-control" />
+				<label for="email">
+					Email
+				</label>
+				<input type="text" name="email" id="email" class="form-control"  />
+				<button class="btn btn-default" id="submit-purchase">Buy the damn hampster</button>
+			</div>
+			<div id="return-value" class="panel panel-body"></div>
+		</div>
+	</div>
+	<div class="col-xs-6">
+		<h2><a href="{{url_for('bitpaybp.donate') }}">Or just donate to us</a></h2>
+	</div>
+</div>
+
+<script>
+	
+	$('#submit-purchase').click(function(event){
+		event.preventDefault();
+
+		var data = {
+			'name' : $("input[name='name']").val(),
+			'email' : $("input[name='email']").val()
+		}
+		$.ajax({
+	        type: "POST",
+	        contentType: "application/json",
+	        url: "{{ url_for('bitpaybp.buy_hampster') }}",
+	        data:  JSON.stringify(data),
+	        dataType: "json",
+	        success: function (data) {
+	        	$('#purchase-form').hide();
+	          	$('#return-value').text('Your hampster will arrive shortly'); 	
+	        },
+	        
+      	});
+		
+	});
+	
+	
+</script>
+
+{% endblock %}

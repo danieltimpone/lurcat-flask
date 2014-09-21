@@ -19,7 +19,7 @@ def send_message():
 		print data
 		sms = client.sms.messages.create(body=data['text-message'],
 		to=data['recipient'],from_=site_number)
-		return 'congrats'
+		return jsonify({'key': data})
 
 
     
