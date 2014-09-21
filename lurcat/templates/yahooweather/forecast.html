@@ -1,11 +1,14 @@
 {% extends 'layouts/base.html' %}
 {% set page_title = 'Yahoo forecast for %s, %s' % (city, state) %}
 
+
+
 {% block container %}
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">{{ wxDict['title'] }}</h3>
   </div>
+  <div class="panel-body">
   <table class="table table-striped" data-type="Weather" data-url="{{ url_for('yahooweatherbp.forecast') }}">
     <thead>
       <tr>
@@ -24,6 +27,11 @@
     </tr>
     {% endfor %}
   </table>
+  </div>
+ <legend>
+    Dev Ops is a time-consuming, expensive part of the deployment process.  Developers at <u>your</u>
+    business can waste <u>days</u> setting up deployments and tying together APIs.  This is waste!</legend>
+
 </div>
 
 {% endblock %}

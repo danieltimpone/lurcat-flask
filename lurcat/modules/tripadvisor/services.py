@@ -4,14 +4,13 @@ import requests
 
 tripadvisorbp = Blueprint('tripadvisorbp', __name__, url_prefix='/tripadvisor')
 
-@tripadvisorbp.route('/')
-def get_hotels(city='atlanta'):
+@tripadvisorbp.route('/<city>')
+def get_hotels(city):
 	params = {}
 	auth_key = os.getenv('TRIPADVISOR')
 
 	params['format'] = 'json'
-	request.args.get('city')
-
+	
 	if not city:
 		city = 'atlanta'
 

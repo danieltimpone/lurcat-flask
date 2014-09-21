@@ -4,15 +4,22 @@
 {% block container %}
 
 <div class="panel panel-default">
+  <div class="panel-body"> 
+    <legend>
+      Select the modules you want, and Lurcat will hand you a working, hosted VirtualMachine full of the
+      stuff it takes to build your dreams.  Choose exactly what APIs you want to connect to, and we'll
+      start the introductions!
+    </legend>
+  </div>
   <div class="panel-heading">
-    <h3 class="panel-title">Hotels</h3>
+    <h2 class="panel-title"><b>Hotels</b></h2>
   </div>
   <table class="table table-striped" data-type="Weather" data-url="{{ url_for('yahooweatherbp.forecast') }}">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Rating</th>
-        <th>Percent Recommended</th>
+        <th><b>Name</b></th>
+        <th><b>Rating</b></th>
+        <th><b>Percent Recommended</b></th>
       </tr>
     </thead>
     {% for hotel in jDict['hotels'] %}
