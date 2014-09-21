@@ -15,6 +15,7 @@ from lurcat.modules.admin import admin
 from lurcat.modules.mailchimp import mailchimpbp
 from lurcat.modules.twilio import twiliobp
 from lurcat.modules.bitpay import bitpaybp
+from lurcat.modules.tripadvisor import tripadvisorbp
 from lurcat.modules.yahooweather import yahooweatherbp
 from lurcat.addons.extensions import db, mail, cache, login_manager, oid
 from lurcat.addons.utils import INSTANCE_FOLDER_PATH
@@ -35,6 +36,7 @@ DEFAULT_BLUEPRINTS = (
     twiliobp,
     yahooweatherbp,
     bitpaybp,
+    tripadvisorbp,
 )
 
 
