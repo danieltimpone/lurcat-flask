@@ -18,93 +18,108 @@
       </style>
 
 
-Thanks for checking out Lurcat!
-Over the course of 36 hours at HackGT, we created Lurcat with the vision of helping developers achieve their dreams!
 
-Lurcat allows you to instantly set up a running web application.  Just choose the modules you want and start coding!
-
-Currently supporting the following features:
-  - User log-in and registration
-  - Admin panel
-  - User messaging
-
-Currently supporting the following APIs:
-  - Bitpay
-  - Mailchimp
-  - Sendgrid
-  - Twilio
-  - YahooWeather
-
-Plenty more modules and APIs to come!  Expect coming support for NodeJS, Ruby on Rails, Django, OpenStack, Kivy, LaTeX and more.
-
-Lurcat hands you a custom Digital Ocean droplet that's desgined to further your dreams.
-
-Lurcat runs using the powers of:
-  - Terraform
-  - Digital Ocean
-  - Cookie Cutter
-  - Python
-  - Flask
-
-Oh and we support BitPay.  Just in case we see any $10,000 donations... 
-
+    <div class="col-xs-12">
       <div class="col-xs-6">
-        <form class="bitpay-donate" action="https://bitpay.com/checkout" method="post">
-          <input name="action" type="hidden" value="checkout">
-          <fieldset>
-            <ul>
-              <li class="bitpay-donate-field">
-                <label>Email:</label>
-                <input class="bitpay-donate-field-email form-control" name="orderID" type="email" placeholder="Email address (optional)" maxlength=50 autocapitalize=off autocorrect=off><br>
-              </li>
-              <li class="bitpay-donate-field">
-                <label>Amount:</label>
-                <input class="bitpay-donate-field-price form-control" name="price" type="number" value="10.00" placeholder="Amount" maxlength="10" min="0.01" step="0.01"/>
-                <label>Currency</label>
-                <select class="bitpay-donate-field-currency form-control" name="currency" style="padding-top:10px;"value="">
-                  <option selected="selected" value="USD">USD</option>
-                  <option value="BTC">BTC</option>
-                  <option value="EUR">EUR</option>
-                  <option value="GBP">GBP</option>
-                  <option value="AUD">AUD</option>
-                  <option value="BGN">BGN</option>
-                  <option value="BRL">BRL</option>
-                  <option value="CAD">CAD</option>
-                  <option value="CHF">CHF</option>
-                  <option value="CNY">CNY</option>
-                  <option value="CZK">CZK</option>
-                  <option value="DKK">DKK</option>
-                  <option value="HKD">HKD</option>
-                  <option value="HRK">HRK</option>
-                  <option value="HUF">HUF</option>
-                  <option value="IDR">IDR</option>
-                  <option value="ILS">ILS</option>
-                  <option value="INR">INR</option>
-                  <option value="JPY">JPY</option>
-                  <option value="KRW">KRW</option>
-                  <option value="LTL">LTL</option>
-                  <option value="LVL">LVL</option>
-                  <option value="MXN">MXN</option>
-                  <option value="MYR">MYR</option>
-                  <option value="NOK">NOK</option>
-                  <option value="NZD">NZD</option>
-                  <option value="PHP">PHP</option>
-                  <option value="PLN">PLN</option>
-                  <option value="RON">RON</option>
-                  <option value="RUB">RUB</option>
-                  <option value="SEK">SEK</option>
-                  <option value="SGD">SGD</option>
-                  <option value="THB">THB</option>
-                  <option value="TRY">TRY</option>
-                  <option value="ZAR">ZAR</option>
-                </select>
-              </li>
-            </ul>
-            <input type="hidden" name="data" value="bAvTb02wj+6rGxHtNQO5D0g9DAD2B2jJXI8ypu28YkyorNSoyxHF3L/IX3hxmpz9MdL2cCYKvkMPZ7ardJChdJe6OHCwyutqs2Dmfaqndh5kWdwXnt+e/NxRTMts/g9Hm6Ur+ncFn2eSmcIAOPNqLGSzF1rlCVaYxuuYMKvGIyunIDgG2/Wb//p6qgYwzOrEfLyHWEwPbGSUwbo9rALby2QSlILOFdYlmmReim9/PS8="> 
-            <div class="bitpay-donate-button-wrapper">
-              <input class="bitpay-donate-button" name="submit" src="https://bitpay.com/img/donate-button.svg" onerror="this.onerror=null; this.src='https://bitpay.com/img/donate-button-md.png'" width="126" height="48" type="image" alt="BitPay, the easy way to pay with bitcoins." border="0">
-            </div>
-          </fieldset>
-        </form>
+        <div class="panel panel-default">
+          <div class="panel-heading">Donate</div>
+          <div class="panel-body">
+            <form class="bitpay-donate" action="https://bitpay.com/checkout" method="post">
+              <input name="action" type="hidden" value="checkout">
+              <fieldset>
+                <ul>
+                  <li class="bitpay-donate-field">
+                    <label>Email:</label>
+                    <input class="bitpay-donate-field-email form-control" name="orderID" type="email" placeholder="Email address (optional)" maxlength=50 autocapitalize=off autocorrect=off><br>
+                  </li>
+                  <li class="bitpay-donate-field">
+                    <label>Amount:</label>
+                    <input class="bitpay-donate-field-price form-control" name="price" type="number" value="10.00" placeholder="Amount" maxlength="10" min="0.01" step="0.01"/>
+                    <label>Currency</label>
+                    <select class="bitpay-donate-field-currency form-control" name="currency" style="padding-top:10px;"value="">
+                      <option selected="selected" value="USD">USD</option>
+                      <option value="BTC">BTC</option>
+                      <option value="EUR">EUR</option>
+                      <option value="GBP">GBP</option>
+                      <option value="AUD">AUD</option>
+                      <option value="BGN">BGN</option>
+                      <option value="BRL">BRL</option>
+                      <option value="CAD">CAD</option>
+                      <option value="CHF">CHF</option>
+                      <option value="CNY">CNY</option>
+                      <option value="CZK">CZK</option>
+                      <option value="DKK">DKK</option>
+                      <option value="HKD">HKD</option>
+                      <option value="HRK">HRK</option>
+                      <option value="HUF">HUF</option>
+                      <option value="IDR">IDR</option>
+                      <option value="ILS">ILS</option>
+                      <option value="INR">INR</option>
+                      <option value="JPY">JPY</option>
+                      <option value="KRW">KRW</option>
+                      <option value="LTL">LTL</option>
+                      <option value="LVL">LVL</option>
+                      <option value="MXN">MXN</option>
+                      <option value="MYR">MYR</option>
+                      <option value="NOK">NOK</option>
+                      <option value="NZD">NZD</option>
+                      <option value="PHP">PHP</option>
+                      <option value="PLN">PLN</option>
+                      <option value="RON">RON</option>
+                      <option value="RUB">RUB</option>
+                      <option value="SEK">SEK</option>
+                      <option value="SGD">SGD</option>
+                      <option value="THB">THB</option>
+                      <option value="TRY">TRY</option>
+                      <option value="ZAR">ZAR</option>
+                    </select>
+                  </li>
+                </ul>
+                <input type="hidden" name="data" value="bAvTb02wj+6rGxHtNQO5D0g9DAD2B2jJXI8ypu28YkyorNSoyxHF3L/IX3hxmpz9MdL2cCYKvkMPZ7ardJChdJe6OHCwyutqs2Dmfaqndh5kWdwXnt+e/NxRTMts/g9Hm6Ur+ncFn2eSmcIAOPNqLGSzF1rlCVaYxuuYMKvGIyunIDgG2/Wb//p6qgYwzOrEfLyHWEwPbGSUwbo9rALby2QSlILOFdYlmmReim9/PS8="> 
+                <div class="bitpay-donate-button-wrapper">
+                  <input class="bitpay-donate-button" name="submit" src="https://bitpay.com/img/donate-button.svg" onerror="this.onerror=null; this.src='https://bitpay.com/img/donate-button-md.png'" width="126" height="48" type="image" alt="BitPay, the easy way to pay with bitcoins." border="0">
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
       </div>
+      <div class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Thanks for checking out Lurcat!
+          </div>
+          <div class="panel-body">
+            Over the course of 36 hours at HackGT, we created Lurcat with the vision of helping developers achieve their dreams!
+
+            Lurcat allows you to instantly set up a running web application.  Just choose the modules you want and start coding!
+
+            Currently supporting the following features:
+              - User log-in and registration
+              - Admin panel
+              - User messaging
+
+            Currently supporting the following APIs:
+              - Bitpay
+              - Mailchimp
+              - Sendgrid
+              - Twilio
+              - YahooWeather
+
+            Plenty more modules and APIs to come!  Expect coming support for NodeJS, Ruby on Rails, Django, OpenStack, Kivy, LaTeX and more.
+
+            Lurcat hands you a custom Digital Ocean droplet that's desgined to further your dreams.
+
+            Lurcat runs using the powers of:
+              - Terraform
+              - Digital Ocean
+              - Cookie Cutter
+              - Python
+              - Flask
+
+            Oh and we support BitPay.  Just in case we see any $10,000 donations... 
+          </div>
+        </div>
+      </div>
+    </div>
     {% endblock %}
